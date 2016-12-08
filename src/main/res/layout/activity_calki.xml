@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_calki"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context="com.example.android.calki.Calki">
+
+
+    <!--
+        This LinearLayout contains the TWO TextViews one is 'bigResult' and the other is 'smallResult'
+        These TextViews function as the main feedback for the user
+
+        bigResult: holds the result and the intermediate value of the ongoing operation
+        smallResult: holds the intermediate result of the ongoing operation
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pad_button_advanced_background"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:clipToPadding="false">
+
+        <TextView
+            android:id="@+id/bigResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:gravity="end"
+            android:maxLines="1"
+            android:onClick="copyToClipboard"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="64dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textColor="#fff"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/smallResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bigResult"
+            android:background="@color/colorPrimary"
+            android:fontFamily="sans-serif"
+            android:gravity="end"
+            android:onClick="copyToClipboardSmall"
+            android:paddingBottom="64dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:textAlignment="textEnd"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+
+
+    <!--
+        This LinearLayout contains the Number pad and the EQUALS button
+
+        Each set is grouped with a LinearLayout for organization and UI enchantments
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!--
+            This LinearLayout contains the following buttons:
+            1- SEVEN
+            2- FOUR
+            3- ONE
+            4- DOT
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/seven"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="seven"
+                android:text="7"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="four"
+                android:text="4"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="one"
+                android:text="1"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/dot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="dot"
+                android:text="."
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!--
+            This LinearLayout contains the following buttons:
+            1- EIGHT
+            2- FIVE
+            3- TWO
+            4- ZERO
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/eight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="eight"
+                android:text="8"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/five"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="five"
+                android:text="5"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="two"
+                android:text="2"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/zero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="zero"
+                android:text="0"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!--
+            This LinearLayout contains the following buttons:
+            1- NINE
+            2- SIX
+            3- THREE
+            4- EQUALS
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/nine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="nine"
+                android:text="9"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/six"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="six"
+                android:text="6"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_background"
+                android:onClick="three"
+                android:text="3"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/equals"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_advanced_background"
+                android:onClick="equals"
+                android:text="="
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!--
+            This LinearLayout contains the following buttons:
+            1- DEL
+            2- DIVIDE
+            3- MULTIPLY
+            4- MINUS
+            5- PLUS
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_op_background"
+                android:onClick="delete"
+                android:text="DEL"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/divide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_op_background"
+                android:onClick="divide"
+                android:text="÷"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/multiply"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_op_background"
+                android:onClick="multiply"
+                android:text="×"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/minus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_op_background"
+                android:onClick="minus"
+                android:text="―"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/plus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@drawable/pad_button_op_background"
+                android:onClick="plus"
+                android:text="+"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+
+        <!--
+            This LinearLayout is only for design
+        -->
+        <LinearLayout
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorAccent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
